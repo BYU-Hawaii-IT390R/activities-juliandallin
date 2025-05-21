@@ -35,6 +35,22 @@ def analyze_successful_creds(lines):
     for (user, passwd), ip_set in sorted_creds:
         print(f"{user:<8} | {passwd:<8} | {len(ip_set)}")
 
+def analyze_top_commands(lines):
+    command_pattern = r"CMD: (.+)"
+    cmd_counter = Counter()
+
+    for line in lines:
+        match = re.search(command_pattern, line)
+        if match:
+            command = match.group(1).strip()
+            cmd_counter[command] += 1
+
+    print("Top Commands:")
+    for cmd, count in cmd_counter.most_common(10):
+        print(f"{count:>3} | {cmd}")
+
+# regex assisted by ChatGPT: pattern to capture "CMD: <command>"
+
 def main():
     if len(sys.argv) < 4:
         print("Usage: python analyze_log.py <logfile> --task <task-name> [--min-count N]")
@@ -53,6 +69,8 @@ def main():
         analyze_failed_logins(lines, min_count)
     elif task == "successful-creds":
         analyze_successful_creds(lines)
+    elif task == "top-commands":
+        analyze_top_commands(lines)
     else:
         print("Unknown task.")
 
