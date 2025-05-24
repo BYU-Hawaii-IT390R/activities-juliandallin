@@ -1,0 +1,25 @@
+# Windows System Admin Toolkit
+
+This project is a Windows system administration script designed to automate common admin tasks using Python. The script was created as part of a lab assignment and includes both required tasks and custom additions to enhance functionality.
+
+## 🛠 Features
+
+Implemented tasks:
+
+- `--task win-events` - Triages Windows Security log (4624/4625).
+- `--task win-pkgs` - Lists installed software (optional CSV export).
+- `--task win-services` - Checks and restarts critical services.
+- `--task win-uptime` (NEW) - Displays system uptime based on `net statistics workstation`.
+- `--task win-startup` (NEW) - Lists startup programs from the Windows Registry (`HKCU\Software\Microsoft\Windows\CurrentVersion\Run`).
+
+## 📋 Usage
+
+Run the script with:
+
+```bash
+python analyze_windows.py --task <taskname>
+
+For example:
+
+python analyze_windows.py --task win-uptime
+python analyze_windows.py --task win-startup
